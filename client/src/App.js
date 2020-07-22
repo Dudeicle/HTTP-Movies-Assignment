@@ -9,6 +9,7 @@ import axios from 'axios';
 const App = () => {
   const [savedList, setSavedList] = useState([]);
   const [movieList, setMovieList] = useState([]);
+  const [updatedList, setUpdatedList] = useState();
 
   const getMovieList = () => {
     axios

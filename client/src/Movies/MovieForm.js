@@ -33,13 +33,18 @@ function MovieForm (props) {
             .put(`http://localhost:5000/api/movies/${movie.id}`, movie)
             .then(res => {
                 console.log(res)
-                props.movieList.filter(v => v.id === movie.id)
-                const newMovieListTwo = [...props.movieList, movie]
+                const filterMovies = props.movieList.filter(v => v.id !== movie.id)
+                const newMovieListTwo = [...filterMovies, movie]
                 props.setMovieList(newMovieListTwo)
                 push(`/movies/${movie.id}`)
             })
             .catch(err => console.log({ err }))
     }
+
+    // let newMoviesList = [...movieList]
+    // newMoviesList = newMoviesList.filter(v => v.id !== movie.id)
+    // newMoviesList.push(movie)
+
 
     const changeHandler = ev => {
         ev.persist();
